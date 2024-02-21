@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ExtensionManifest Version="7.0" ExtensionBundleId="com.demo.cepstart" ExtensionBundleVersion="1.0.1"
+        ExtensionBundleName="CEPPanelStart" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ExtensionList>
+        <Extension Id="com.demo.cepstart" Version="1.0" />
+    </ExtensionList>
+    <ExecutionEnvironment>
+        <HostList>
+            <Host Name="PHXS" Version="16.0" />
+        </HostList>
+        <LocaleList>
+            <Locale Code="All" />
+        </LocaleList>
+        <RequiredRuntimeList>
+            <RequiredRuntime Name="CSXS" Version="6.0" />
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
+    <DispatchInfoList>
+        <Extension Id="com.demo.cepstart">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./index.html</MainPath>
+                    <CEFCommandLine>
+                        <Parameter>--enable-nodejs</Parameter>
+                    </CEFCommandLine>
+                    <ScriptPath>./jsx/main.jsx</ScriptPath>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>true</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>F_Record 1.0</Menu>
+                    <Geometry>
+                        <Size>
+                            <Height>400</Height>
+                            <Width>450</Width>
+                        </Size>
+                        <MinSize>
+                            <Height>400</Height>
+                            <Width>450</Width>
+                        </MinSize>
+                        <MaxSize>
+                            <Height>400</Height>
+                            <Width>450</Width>
+                        </MaxSize>
+                    </Geometry>
+                    <Icons>
+                        <Icon Type="Normal">./images/IconLight.png</Icon>
+                        <Icon Type="RollOver">./images/IconLight.png</Icon>
+                        <Icon Type="DarkNormal">./images/IconDark.png</Icon>
+                        <Icon Type="DarkRollOver">./images/IconDark.png</Icon>
+                    </Icons>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+    </DispatchInfoList>
+</ExtensionManifest>

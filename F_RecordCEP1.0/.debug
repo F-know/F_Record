@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionList>
+    <Extension Id="com.demo.cepstart">
+        <HostList>
+            <Host Name="PHXS" Port="4001"/>
+        </HostList>
+    </Extension>
+</ExtensionList>

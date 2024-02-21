@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="./js/CSInterface-6.1.0.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/fonts/stylesheet.css">
+        <link rel="stylesheet" id="theme-link" href="./css/topcoat/topcoat-desktop-dark.min.css">
+        <style>
+            html,
+            body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+            }
+        
+            body {
+                font-family: source-sans-pro, sans-serif;
+                position: relative;
+                -webkit-font-smoothing: antialiased;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+        </style>
+    </head>
+
+    <body id="body">
+        <br>
+        <button id="start-btn" onclick="startOrStopRecord()" class="topcoat-button--cta" style="width: 100px;height: 50px;font-size: 20px;">开始录制</button>
+        <button id="clear-btn" onclick="clearProcessImages()" class="topcoat-button--cta" style="width: 100px;height: 50px;font-size: 20px;">清空过程</button>
+        <button id="output-btn" onclick="outputVideo()" class="topcoat-button--cta" style="width: 100px;height: 50px;font-size: 20px;float: right;">输出录像</button>
+        <br><br>    
+        <label for="savePath">路径</label>
+        <input type="text" id="savePath" name="savePath" oninput="updateSavePath()" style="width: 200px;float: right;">
+        <br><br>
+        <label for="imageCount">已保存图片数</label>
+        <span class="number" id="imageCount" name="imageCount" style="float: right;">0</span>
+        <br>
+        <label for="minRecordInterval">最小保存间隔（秒）</label>
+        <input type="number" id="minRecordInterval" name="minRecordInterval" style="width: 60px;float: right;" oninput="updateMinRecordInterval()">
+        <br><br><br>
+        <label for="videoDuration">录像时长（秒）</label>
+        <input type="number" id="videoDuration" name="videoDuration" style="width: 60px;float: right;" oninput="updateVideoDuration()" >
+        <br><br>
+        <label for="videoWidth">录像宽度（像素）</label>
+        <input type="number" id="videoWidth" name="videoWidth" style="width: 60px;float: right;" oninput="updateVideoWidth()">
+        <br>
+        <label for="videoHeight">录像高度（像素）</label>
+        <input type="number" id="videoHeight" name="videoHeight" style="width: 60px;float: right;" oninput="updateVideoHeight()">
+        <br>
+        <button id="get-canvas-size-btn" onclick="loadCanvasSize()" class="topcoat-button--cta" style="float: right;">填入当前画布大小</button>
+        <br><br><br>
+        <!-- <div id="preview"></div> -->
+        <span id="author" name="author" style="float: right;vertical-align: bottom;font-size: 10;">by F_know</span>
+    </body>
+    <script>
+        document.write('<script src="js/main.js?t='+(new Date().getTime())+'"><\/script>');
+        
+    </script>
+    
+</html>
