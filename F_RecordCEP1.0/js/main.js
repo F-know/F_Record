@@ -168,10 +168,11 @@ async function outputVideo(){
     
     const ffmpeg = require('fluent-ffmpeg');
     const ffmpegPath = require('@ffmpeg-installer/ffmpeg').path;
-    
+    const ffprobePath = ffmpegPath.substring(0,ffmpegPath.length-10)+'ffprobe.exe';
     
     // 设置ffmpeg路径
     ffmpeg.setFfmpegPath(ffmpegPath);
+    ffmpeg.setFfprobePath(ffprobePath);
 
     try{
         fs.readdirSync(localStorage['savePath']);
@@ -542,9 +543,9 @@ window.addEventListener('load', () => {
     loadUserInfo()
 
     /*持久化*/
-    const event = new CSEvent("com.adobe.PhotoshopPersistent", "APPLICATION");
-    event.extensionId = extId;
-    csInterface.dispatchEvent(event);
+    // const event = new CSEvent("com.adobe.PhotoshopPersistent", "APPLICATION");
+    // event.extensionId = extId;
+    // csInterface.dispatchEvent(event);
 
     
 

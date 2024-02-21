@@ -14,6 +14,7 @@
     var save_path = null;
     var min_record_interval = null;
     let ok = false;
+    let doc_id = -1;
 
     // 核心调用此方法，传递两个参数
     // generator 核心对象，是所有接口方法调用的主体
@@ -83,19 +84,20 @@
     }
     let isFunctionExecuting = false;
 
-    function startPreview() {
+    async function startPreview() {
         // 监听Ps的事件
         ok = true;
         _generator.onPhotoshopEvent("imageChanged", handleImageChanged);
         // _generator.onPhotoshopEvent("currentDocumentChanged", handleCurrentDocumentChanged);
         // _generator.onPhotoshopEvent("toolChanged", handleToolChanged);
-        refreshImage();
+        await refreshImage();
     }
 
-    function stopPreview() {
+    async function stopPreview() {
         isFunctionExecuting = false;
-        refreshImage();
+        await refreshImage();
         ok = false;
+        doc_id = -1;
     }
 
     async function getCanvasSize() {
@@ -143,16 +145,24 @@
         try {
             ////////////
             const document = await _generator.getDocumentInfo();
-            const pixmap = await getImage(document.id, document.bounds);
-            if (pixmap) {
-                // 保存文件到本地，获取到该图片的路径
-                const output = await saveImageToPNG(pixmap, document.id);
-                // 将该路径发送给插件面板
-                const file = require("path").join(__dirname, 'event-dispatch.jsx');
-                _generator.evaluateJSXFile(file, {data: JSON.stringify({imageChanged: output})});
+            let abc = true;
+            if (doc_id == -1){
+                doc_id = document.id;
+            }else if (doc_id != document.id){
+                abc = false;
             }
-            ////////////
-            await new Promise(resolve => setTimeout(resolve, min_record_interval*1000));
+            if(abc){
+                const pixmap = await getImage(document.id, document.bounds);
+                if (pixmap) {
+                    // 保存文件到本地，获取到该图片的路径
+                    const output = await saveImageToPNG(pixmap, document.id);
+                    // 将该路径发送给插件面板
+                    const file = require("path").join(__dirname, 'event-dispatch.jsx');
+                    _generator.evaluateJSXFile(file, {data: JSON.stringify({imageChanged: output})});
+                }
+                ////////////
+                await new Promise(resolve => setTimeout(resolve, min_record_interval*1000));
+            }
         } catch(error) {
 
         } finally {
