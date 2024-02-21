@@ -543,9 +543,9 @@ window.addEventListener('load', () => {
     loadUserInfo()
 
     /*持久化*/
-    // const event = new CSEvent("com.adobe.PhotoshopPersistent", "APPLICATION");
-    // event.extensionId = extId;
-    // csInterface.dispatchEvent(event);
+    const event = new CSEvent("com.adobe.PhotoshopPersistent", "APPLICATION");
+    event.extensionId = extId;
+    csInterface.dispatchEvent(event);
 
     
 
