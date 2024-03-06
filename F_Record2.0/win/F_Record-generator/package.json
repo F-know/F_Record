@@ -1,0 +1,21 @@
+{
+  "name": "generator-getting-started",
+  "version": "1.0.0",
+  "description": "Getting started Adobe Generator",
+  "main": "index.js",
+  "generator-core-version": "1 - 4.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tomkrcha/generator-getting-started"
+  },
+  "license": "Public Domain",
+  "readmeFilename": "README.md",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "dependencies": {
+    "jimp": "^0.16.1",
+    "pngjs": "^6.0.0"
+  },
+  "devDependencies": {}
+}

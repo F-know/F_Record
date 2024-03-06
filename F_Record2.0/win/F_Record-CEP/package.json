@@ -1,0 +1,19 @@
+{
+  "name": "cep-panel-start-generator",
+  "version": "1.0.0",
+  "description": "CEP插件面板demo，这个工程是一个让你可以快速开始CEP面板开发的启动工程，你可以在此基础上进行修改来实现你的面板功能。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "fluent-ffmpeg": "^2.1.2",
+    "jpeg-js": "^0.4.4"
+  },
+  "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.24"
+  }
+}
