@@ -9,6 +9,7 @@
 ### mac
 将F_Record-CEP放在/Users/{用户名}/Library/Application Support/Adobe/CEP/extensions中  
 将F_Record-generator放在/Adobe Photoshop/Plug-ins/Generator中  
+  
 路径没找到的话就自己新建一个出来  
 最后打开PS，编辑-首选项-增效工具-启用生成器（勾上），重启PS，在最上面一栏的 窗口-扩展 就能找到插件了  
 ## 使用介绍
