@@ -1,7 +1,8 @@
 # F_Record
 一款用来录制绘画过程的轻量级PS插件  
 支持版本：PS 2019及以后（感谢srylyx帮忙兼容）  
-支持系统：Windows、Mac  
+支持系统：Windows、Mac（github上暂时只放了Windows）  
+网盘下载：https://pan.quark.cn/s/d3aaf46abc5e  
 ## 安装方法
 ### win
 将F_Record-CEP放在/Adobe Photoshop/Required/CEP/extensions中  
