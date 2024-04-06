@@ -224,7 +224,8 @@
                 const path = require("path");
                 const output = path.join(save_path, 'process_images', Date.now() + '.jpg');
                 console.log(`image save to[${output}]`);
-                var scale=Math.sqrt(720*1280/(image.bitmap.width*image.bitmap.height));
+                var scale=Math.sqrt(1920*1080/(image.bitmap.width*image.bitmap.height));
+                // var scale=Math.sqrt(720*1280/(image.bitmap.width*image.bitmap.height));
                 image.resize(image.bitmap.width*scale,image.bitmap.height*scale).write(output);
                 resolve(output);
             });

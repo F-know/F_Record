@@ -484,9 +484,9 @@ function setIntInputMinMax(id,mn,mx){
 
 window.addEventListener('load', function(){
     /*持久化*/
-    // const event = new CSEvent("com.adobe.PhotoshopPersistent", "APPLICATION");
-    // event.extensionId = extId;
-    // csInterface.dispatchEvent(event);
+    const event = new CSEvent("com.adobe.PhotoshopPersistent", "APPLICATION");
+    event.extensionId = extId;
+    csInterface.dispatchEvent(event);
 
     syncTheme();
     csInterface.addEventListener('com.adobe.csxs.events.ThemeColorChanged', function(){
