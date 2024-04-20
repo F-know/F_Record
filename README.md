@@ -2,8 +2,8 @@
 一款用来录制绘画过程的轻量级PS插件。  
 插件原理：调用PS生成器的接口，当画布发生变化时截取过程图片，最后将图片连起来生成录像。  
 支持版本：PS 2019及以后（感谢srylyx帮忙兼容）  
-支持系统：Windows、Mac（github上暂时只放了Windows）  
-Github：https://github.com/F-know/F_Record  
+支持系统：Windows、Mac（Mac版本其实就是把ffmpeg相关的exe程序换成了Mac版，其余的都不变）  
+Github：https://github.com/F-know/F_Record（如果从这里下载，不要下载整个仓库的源码，而是下载release）  
 网盘下载：https://pan.quark.cn/s/d3aaf46abc5e  
 免责声明：该插件不保证能让任何电脑都能完美运行不出bug，所以对于重要的录制过程请做好Plan B，否则造成的损失我不负责哦，毕竟是免费的。看完下面所有内容还有问题可以来b站（id：F_know）私信我，看到后会回复。  
 PS插件开发博客：https://uiscripting.com  这个插件的所有内容都是我跟着这位大佬写的博客一步步完成的，耗时一周。  
@@ -17,7 +17,7 @@ PS插件开发博客：https://uiscripting.com  这个插件的所有内容都�
 将F_Record-CEP放在/Users/{用户名}/Library/Application Support/Adobe/CEP/extensions中  
 将F_Record-generator放在/Adobe Photoshop/Plug-ins/Generator中  
   
-最后打开PS，编辑-首选项-增效工具-启用生成器（勾上）、载入扩展面板（勾上），重启PS，在最上面一栏的 窗口-扩展 就能找到插件了。  
+最后打开PS，编辑-首选项-增效工具-启用生成器（勾上）、载入扩展面板（勾上），重启PS（一定要重启哦），在最上面一栏的 窗口-扩展 就能找到插件了。  
 ## 插件界面的参数介绍
 路径：这里填保存过程图片和输出录像的路径，不是插件安装的位置。随便在哪儿新建一个文件夹，把路径复制进去就行。  
 已保存图片数：已保存的过程图片数量。开始录制后会随着操作进行逐渐增加。  
