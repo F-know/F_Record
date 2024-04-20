@@ -18,6 +18,9 @@ PS插件开发博客：https://uiscripting.com  这个插件的所有内容都�
 将F_Record-generator放在/Adobe Photoshop/Plug-ins/Generator中  
   
 最后打开PS，编辑-首选项-增效工具-启用生成器（勾上）、载入扩展面板（勾上），重启PS（一定要重启哦），在最上面一栏的 窗口-扩展 就能找到插件了。  
+
+如果你用的Mac并且插件无法正常使用，可以参考一下一位外国老哥给的建议，由于我对Mac了解也不多所以我直接把他原话复制过来了：  
+I would suggest adding information into README about running extension on ARM mac hardware (M processors). To load plugins on ARM version of MAC it requires to run Photoshop in "Rosetta" mode (check "open with Rosetta" in "get info" file window of Photoshop app icon)  
 ## 插件界面的参数介绍
 路径：这里填保存过程图片和输出录像的路径，不是插件安装的位置。随便在哪儿新建一个文件夹，把路径复制进去就行。  
 已保存图片数：已保存的过程图片数量。开始录制后会随着操作进行逐渐增加。  
