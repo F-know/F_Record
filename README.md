@@ -6,13 +6,15 @@
 
 当前插件版本：3.0
 
+支持系统：Windows（Macos后续会补上）
+
 支持PS版本：PS 2022及以后，低于该版本的PS无法使用
 
 ## 安装方法
 
-1. 下载插件压缩包，解压。
+1. 下载插件压缩包[F_Record.zip](https://github.com/F-know/F_Record/releases/download/3.0/F_Record.zip)，解压，打开文件夹。
 
-2. 将其中的文件夹放到PS主目录下的相应位置。
+2. 将内部的两个文件夹`com.f_know.f_record.cep`和`com.f_know.f_record.generator`放到PS主目录下的相应位置。
    PS主目录的路径形如`D:\Adobe Photoshop 2022`。
    判断有没有找对是看其中有没有PS的可执行文件`Photoshop.exe`，而不是快捷方式。
 
