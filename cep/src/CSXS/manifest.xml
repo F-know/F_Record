@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ExtensionManifest Version="5.0" ExtensionBundleId="com.F_know.F_Record3" ExtensionBundleVersion="1.0.0" ExtensionBundleName="F_Record3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <ExtensionList>
+        <Extension Id="com.F_know.F_Record3.panel" Version="1.0"/>
+    </ExtensionList>
+    <ExecutionEnvironment>
+        <HostList>
+            <!-- Photoshop >= CC2018 -->
+            <Host Name="PHXS" Version="18.0"/>
+            <Host Name="PHSP" Version="18.0"/>
+        </HostList>
+        <LocaleList>
+            <Locale Code="All"/>
+        </LocaleList>
+        <RequiredRuntimeList>
+            <RequiredRuntime Name="CSXS" Version="6.0"/>
+        </RequiredRuntimeList>
+    </ExecutionEnvironment>
+    <DispatchInfoList>
+        <Extension Id="com.F_know.F_Record3.panel">
+            <DispatchInfo>
+                <Resources>
+                    <MainPath>./index.html</MainPath>
+                    <ScriptPath>./init.jsx</ScriptPath>
+                    <CEFCommandLine>
+                        <Parameter>--enable-nodejs</Parameter>
+                        <Parameter>--mixed-context</Parameter>
+                    </CEFCommandLine>
+                </Resources>
+                <Lifecycle>
+                    <AutoVisible>true</AutoVisible>
+                </Lifecycle>
+                <UI>
+                    <Type>Panel</Type>
+                    <Menu>F_Record 3</Menu>
+                    <Geometry>
+                        <Size>
+                            <Width>325</Width>
+                            <Height>320</Height>
+                        </Size>
+                        <MaxSize>
+                            <Width>325</Width>
+                            <Height>320</Height>
+                        </MaxSize>
+                        <MinSize>
+                            <Width>325</Width>
+                            <Height>320</Height>
+                        </MinSize>
+                    </Geometry>
+                </UI>
+            </DispatchInfo>
+        </Extension>
+    </DispatchInfoList>
+</ExtensionManifest>
