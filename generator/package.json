@@ -2,8 +2,6 @@
   "name": "f_record-generator",
   "version": "3.0.0",
   "author": "F_know",
-  "license": "GPL-3.0-only",
-  "description": "F_Record3 Generator",
   "main": "src/index.js",
   "generator-core-version": "1 - 4.1",
   "dependencies": {

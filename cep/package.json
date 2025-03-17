@@ -2,7 +2,6 @@
   "name": "f_record_cep",
   "version": "3.0.0",
   "author": "F_know",
-  "license": "GPL-3.0-only",
   "scripts": {
     "build": "webpack --mode production"
   },
