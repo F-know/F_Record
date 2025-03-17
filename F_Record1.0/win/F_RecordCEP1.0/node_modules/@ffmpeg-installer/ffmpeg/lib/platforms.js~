@@ -1,4 +1,0 @@
-import * as fs from 'fs';
-import appRoot from 'app-root-path';
-
-export default fs.readdirSync(appRoot.resolve('platforms'));

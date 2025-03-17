@@ -1,5 +1,0 @@
-import { expectType } from 'tsd';
-import * as verifyFile from './verify-file';
-
-expectType<Function>(verifyFile);
-
