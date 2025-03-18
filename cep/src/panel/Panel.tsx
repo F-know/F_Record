@@ -181,7 +181,7 @@ function Panel() {
 
     React.useEffect(() => {
         try {
-            // persistentVisiblePanel();
+            persistentVisiblePanel();
             loadConfigData();
             loopSaveConfigData();
             loopUpdateNowDocument();

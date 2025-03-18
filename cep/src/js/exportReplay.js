@@ -79,6 +79,21 @@ async function _exportReplay(exportParams) {
         }
     }
 
+    const checkJPGIntegrity = (filePath) => {
+        try {
+            const buffer = fs.readFileSync(filePath);
+            if (buffer[0] !== 0xFF || buffer[1] !== 0xD8) {
+                return false;
+            }
+            if (buffer[buffer.length - 2] !== 0xFF || buffer[buffer.length - 1] !== 0xD9) {
+                return false;
+            }
+            return true;
+        } catch (error) {
+            return false;
+        }
+    }
+
     postNowProgress(0, 0, true)
     
     for (let i = 0; i < imageFiles.length; i++) {
@@ -87,7 +102,9 @@ async function _exportReplay(exportParams) {
         const newName = `${(i + 1).toString().padStart(6, '0')}.jpg`;
         const src = path.join(imageFolderPath, file);
         const dest = path.join(exportTempFolderPath, newName);
-        fs.copyFileSync(src, dest);
+        if (checkJPGIntegrity(src)) {
+            fs.copyFileSync(src, dest);
+        }
     }
 
     postNowProgress(1, 0, true)
