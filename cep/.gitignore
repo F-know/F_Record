@@ -1,5 +1,6 @@
 /node_modules/
 /.idea/
+/dist/
 /webpack.config.js
 /tsconfig.json
 /tsconfig.jsx.json

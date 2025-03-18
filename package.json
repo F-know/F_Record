@@ -1,0 +1,23 @@
+{
+  "name": "f_record",
+  "version": "3.0.0",
+  "description": "一款用来录制绘画过程的轻量级PS插件。",
+  "main": "build.js",
+  "scripts": {
+    "build": "node build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/F-know/F_Record.git"
+  },
+  "author": "F_know",
+  "license": "GPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/F-know/F_Record/issues"
+  },
+  "homepage": "https://github.com/F-know/F_Record#readme",
+  "dependencies": {
+    "adm-zip": "^0.5.16",
+    "fs-extra": "^11.3.0"
+  }
+}
