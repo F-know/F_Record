@@ -13,6 +13,7 @@ import FolderOpen from '@spectrum-icons/workflow/FolderOpen';
 import { Text } from '@adobe/react-spectrum';
 import { useTranslation } from 'react-i18next';
 import { exportTempFolderPath, finalJPGPath } from './constants';
+import { FPS } from './constants';
 
 
 function ExportReplayButton({configData, documentValue, exportSettings, progress, setProgress}) {
@@ -21,7 +22,7 @@ function ExportReplayButton({configData, documentValue, exportSettings, progress
     const [, forceUpdate] = React.useState({});
 
     const estimateDuration = () => {
-        return Math.floor(documentValue.count / 24) + 3;
+        return Math.floor(documentValue.count / FPS) + 3;
     }
     
     //@ts-ignore

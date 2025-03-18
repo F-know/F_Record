@@ -8,6 +8,8 @@ const ffprobePath = path.resolve(__dirname, '..', 'ffmpeg', process.platform ===
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
 
+const FPS = 10;
+
 parentPort.on('message', (exportParams) => {
     _exportReplay(exportParams)
         .then(() => {
@@ -128,11 +130,11 @@ async function _exportReplay(exportParams) {
         let baseFfmpeg = ffmpeg()
                             .input(input)
                             .inputOptions(['-f image2'])
-                            .inputFPS(24)
+                            .inputFPS(FPS)
                             .videoCodec('libx264')
         if (exportSettings.duration !== "0") {
             const duration = parseFloat(exportSettings.duration);
-            let k = (duration - 3) / (imageFiles.length / 24);
+            let k = (duration - 3) / (imageFiles.length / FPS);
             k = Math.round(Math.min(Math.max(k, 0.001), 1) * 1000) / 1000;
             baseFfmpeg = baseFfmpeg.videoFilters('setpts=' + k + '*PTS');
         }
@@ -161,7 +163,7 @@ async function _exportReplay(exportParams) {
         const output = path.join(exportTempFolderPath, 'startVideo.ts');
         ffmpeg(input)
             .inputOptions('-loop 1')
-            .inputFPS(24)
+            .inputFPS(FPS)
             .duration(1)
             .videoCodec('libx264')
             .size(`${width}x${height}`)
