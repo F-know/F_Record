@@ -9,9 +9,9 @@
 
 **当前插件版本**：3.0
 
-**支持系统**：Windows（Macos后续会补上）
+**支持系统**：Windows（后面会适配Macos）
 
-**支持PS版本**：PS 2022及以后，低于该版本的PS无法使用
+**支持PS版本**：PS 2022 ~ 2024（后面会适配2025）
 
 ## 安装方法
 
@@ -24,6 +24,8 @@
     • 将`com.f_know.f_record.cep`文件夹放到形如`D:\Adobe Photoshop 2022\Required\CEP\extensions`的路径下。
 
     • 将`com.f_know.f_record.generator`文件夹放到形如`D:\Adobe Photoshop 2022\Plug-ins\Generator`的路径下。
+
+    注意，有可能你的PS下缺少某个路径，比如Plug-ins下没有Generator文件夹，这时需要你手动创建一个。
 
 3. 打开PS，依次点开"编辑-首选项-增效工具"，看看"启用生成器"和"载入扩展面板"是否勾选。
    如果没有勾选，则需要勾上后重启PS，如果已经勾选，则不需要重启。
