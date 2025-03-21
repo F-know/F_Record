@@ -24,20 +24,6 @@ function ExportReplayButton({configData, documentValue, exportSettings, progress
     const estimateDuration = () => {
         return Math.floor(documentValue.count / FPS) + 3;
     }
-    
-    //@ts-ignore
-    const cs = new CSInterface();
-
-    const showError = (error) => {
-        const errorProperties = Object.getOwnPropertyNames(error).reduce((acc, key) => {
-            acc[key] = error[key];
-            return acc;
-        }, {});
-        const script = "$.f_record.showError('" + encodeURIComponent(JSON.stringify(errorProperties, null, 2)).replace(/[!'()*]/g, c => 
-            '%' + c.charCodeAt(0).toString(16).toUpperCase()
-        ) + "')";
-        cs.evalScript(script);
-    }
 
     const prepareExportParams = async () => {
         const exportParams = {
@@ -56,6 +42,7 @@ function ExportReplayButton({configData, documentValue, exportSettings, progress
         createDir(exportTempFolderPath);
         
         await new Promise((resolve, reject) => {
+            //@ts-ignore
             cs.evalScript("$.f_record.generateFinalJPG('" + encodeURIComponent(finalJPGPath) + "')", function(result) {
                 //@ts-ignore
                 if (result === EvalScript_ErrMessage){
@@ -89,6 +76,7 @@ function ExportReplayButton({configData, documentValue, exportSettings, progress
             } catch (error) {
                 ToastQueue.negative(t('Export failed'), {
                     actionLabel: t('Details'),
+                    //@ts-ignore
                     onAction: () => showError(error)
                 });
                 exportSettings.current.isExporting = false;
@@ -114,6 +102,7 @@ function ExportReplayButton({configData, documentValue, exportSettings, progress
             } catch (error) {
                 ToastQueue.negative(t('Export failed'), {
                     actionLabel: t('Details'),
+                    //@ts-ignore
                     onAction: () => showError(error)
                 });
             } finally {

@@ -2,6 +2,7 @@ const fs = require("fs");
 const path = require('path');
 const writeFileAtomic = require('write-file-atomic');
 const { exec , spawn } = require('child_process');
+const cs = new CSInterface();
 
 
 function getUserDirectory() {
@@ -48,6 +49,28 @@ function openLocalPath(path) {
     }
 }
 
+function showError(error) {
+    const errorProperties = Object.getOwnPropertyNames(error).reduce((acc, key) => {
+        acc[key] = error[key];
+        return acc;
+    }, {});
+    const script = "$.f_record.showError('" + encodeURIComponent(JSON.stringify(errorProperties, null, 2)).replace(/[!'()*]/g, c => 
+        '%' + c.charCodeAt(0).toString(16).toUpperCase()
+    ) + "')";
+    cs.evalScript(script);
+}
+
+function persistentPanel() {
+    const extensionId = cs.getExtensionID();
+    const appId = cs.getApplicationID();
+    const event = new CSEvent();
+    event.type = "com.adobe.PhotoshopPersistent";
+    event.appId = appId;
+    event.extensionId = extensionId;
+    event.scope = "APPLICATION";
+    event.data = {};
+    cs.dispatchEvent(event);
+}
 
 async function exportReplay(exportParams, onProgress) {
     return new Promise((resolve, reject) => {

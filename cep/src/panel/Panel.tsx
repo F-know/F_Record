@@ -14,6 +14,8 @@ function Panel() {
 
     const { t , i18n } = useTranslation();
 
+    const [theme, setTheme] = React.useState(darkTheme);
+
     interface ConfigData {
         [key: string]: any;
     }
@@ -68,20 +70,6 @@ function Panel() {
         forceUpdate({});
     }
 
-    const persistentVisiblePanel = () => {
-        //@ts-ignore;
-        const cs = new CSInterface();
-        const extensionId = cs.getExtensionID();
-        const appId = cs.getApplicationID();
-        //@ts-ignore;
-        const event = new CSEvent();
-        event.type = "com.adobe.PhotoshopPersistent";
-        event.appId = appId;
-        event.extensionId = extensionId;
-        event.scope = "APPLICATION";
-        event.data = {};
-        cs.dispatchEvent(event);
-    }
 
     const saveConfigData = () => {
         //@ts-ignore
@@ -179,26 +167,44 @@ function Panel() {
         }
     }
 
+    const syncTheme = () => {
+        //@ts-ignore
+        const hostEnv = cs.getHostEnvironment();
+        const bgColor = hostEnv.appSkinInfo.appBarBackgroundColor;
+        if (bgColor.color.red < 127) {
+            setTheme(darkTheme);
+        } else {
+            setTheme(lightTheme);
+        }
+    }
+
+    const alwaysSyncTheme = () => {
+        //@ts-ignore
+        syncTheme();
+        //@ts-ignore
+        cs.addEventListener('com.adobe.csxs.events.ThemeColorChanged', syncTheme);
+    }
+
     React.useEffect(() => {
         try {
-            persistentVisiblePanel();
+            //@ts-ignore
+            persistentPanel();
             loadConfigData();
             loopSaveConfigData();
             loopUpdateNowDocument();
             loopUpdateLastExportTime();
+            alwaysSyncTheme();
         } catch (error) {
             ToastQueue.negative(t('Error'), {
                 actionLabel: t('Details'),
-                onAction: () => {
-                    //@ts-ignore
-                    cs.evalScript("$.f_record.showError('" + encodeURIComponent(JSON.stringify(error, null, 2)) + "')");
-                }
+                //@ts-ignore
+                onAction: () => showError(error)
             });
         }
     }, []);
 
     return (
-        <Provider theme={darkTheme}>
+        <Provider theme={theme}>
             <ToastContainer placement="bottom" />
             <Flex justifyContent="center" marginX="size-200">
                 <Tabs aria-label="Tab of Panel">
