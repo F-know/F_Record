@@ -8,7 +8,7 @@ const ffprobePath = path.resolve(__dirname, '..', 'ffmpeg', process.platform ===
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
 
-const FPS = 10;
+const FPS = 25;
 
 parentPort.on('message', (exportParams) => {
     _exportReplay(exportParams)
@@ -187,7 +187,7 @@ async function _exportReplay(exportParams) {
         const output = path.join(exportTempFolderPath, 'endVideo.ts');
         ffmpeg(input)
             .inputOptions('-loop 1')
-            .inputFPS(24)
+            .inputFPS(FPS)
             .duration(2)
             .videoFilters('fade=type=in:st=0:d=1')
             .videoCodec('libx264')

@@ -28,6 +28,14 @@ function ExportReplayButton({configData, documentValue, exportSettings, progress
     //@ts-ignore
     const cs = new CSInterface();
 
+    const showError = (error) => {
+        const errorProperties = Object.getOwnPropertyNames(error).reduce((acc, key) => {
+            acc[key] = error[key];
+            return acc;
+        }, {});
+        cs.evalScript("$.f_record.showError('" + encodeURIComponent(JSON.stringify(errorProperties, null, 2)) + "')");
+    }
+
     const prepareExportParams = async () => {
         const exportParams = {
             configData: configData.current,
@@ -78,10 +86,7 @@ function ExportReplayButton({configData, documentValue, exportSettings, progress
             } catch (error) {
                 ToastQueue.negative(t('Export failed'), {
                     actionLabel: t('Details'),
-                    onAction: () => {
-                        //@ts-ignore
-                        cs.evalScript("$.f_record.showError('" + encodeURIComponent(JSON.stringify(error, null, 2)) + "')");
-                    }
+                    onAction: () => showError(error)
                 });
                 exportSettings.current.isExporting = false;
                 forceUpdate({});
@@ -106,10 +111,7 @@ function ExportReplayButton({configData, documentValue, exportSettings, progress
             } catch (error) {
                 ToastQueue.negative(t('Export failed'), {
                     actionLabel: t('Details'),
-                    onAction: () => {
-                        //@ts-ignore
-                        cs.evalScript("$.f_record.showError('" + encodeURIComponent(JSON.stringify(error, null, 2)) + "')");
-                    }
+                    onAction: () => showError(error)
                 });
             } finally {
                 exportSettings.current.isExporting = false;
