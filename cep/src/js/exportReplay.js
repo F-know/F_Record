@@ -1,4 +1,3 @@
-const { parentPort } = require('worker_threads')
 const fs = require("fs");
 const path = require('path');
 const ffmpeg = require('fluent-ffmpeg');
@@ -10,16 +9,16 @@ ffmpeg.setFfprobePath(ffprobePath);
 
 const FPS = 25;
 
-parentPort.on('message', (exportParams) => {
+process.on('message', (exportParams) => {
     _exportReplay(exportParams)
         .then(() => {
-            parentPort.postMessage({
+            process.send({
                 type: "exportReplaySuccess",
                 data: null
             });
         })
         .catch(error => {
-            parentPort.postMessage({
+            process.send({
                 type: "exportReplayError",
                 data: error
             });
@@ -70,7 +69,7 @@ async function _exportReplay(exportParams) {
                 nowPercent += statusInfo[i].ratio;
             }
             nowPercent += statusInfo[index].ratio * percent;
-            parentPort.postMessage({
+            process.send({
                 type: "exportReplayProgress", 
                 data: {
                     status: statusInfo[index].status,

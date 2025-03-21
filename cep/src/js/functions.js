@@ -1,8 +1,7 @@
 const fs = require("fs");
 const path = require('path');
 const writeFileAtomic = require('write-file-atomic');
-const { exec } = require('child_process');
-const { Worker } = require('worker_threads');
+const { exec , spawn } = require('child_process');
 
 
 function getUserDirectory() {
@@ -53,10 +52,12 @@ function openLocalPath(path) {
 async function exportReplay(exportParams, onProgress) {
     return new Promise((resolve, reject) => {
         const workerPath = path.join(__dirname, 'js', 'exportReplay.js');
-        const worker = new Worker(workerPath);
+        const worker = spawn('node', [workerPath], {
+            stdio: ['pipe', 'pipe', 'pipe', 'ipc']
+        });
 
-        worker.on('message', (e) => {
-            const { type, data } = e;
+        worker.on('message', (message) => {
+            const { type, data } = message;
             switch (type) {
             case "exportReplayProgress":
                 onProgress(data);
@@ -77,6 +78,6 @@ async function exportReplay(exportParams, onProgress) {
                 reject(new Error(`Worker exited with code ${code}`));
             }
         });
-        worker.postMessage(exportParams);
+        worker.send(exportParams);
     });
 }

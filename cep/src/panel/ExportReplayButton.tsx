@@ -33,7 +33,10 @@ function ExportReplayButton({configData, documentValue, exportSettings, progress
             acc[key] = error[key];
             return acc;
         }, {});
-        cs.evalScript("$.f_record.showError('" + encodeURIComponent(JSON.stringify(errorProperties, null, 2)) + "')");
+        const script = "$.f_record.showError('" + encodeURIComponent(JSON.stringify(errorProperties, null, 2)).replace(/[!'()*]/g, c => 
+            '%' + c.charCodeAt(0).toString(16).toUpperCase()
+        ) + "')";
+        cs.evalScript(script);
     }
 
     const prepareExportParams = async () => {
