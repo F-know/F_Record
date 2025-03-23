@@ -20,7 +20,7 @@
         isEnabled: false,
         processImageFolderPath: path.join(F_Record_Dir, "processImages"),
         resolution: "1080",
-        quality: "50",
+        quality: "70",
         idleTimeout: "1",
         language: "cn",
         lastExportTime: null,

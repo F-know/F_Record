@@ -77,7 +77,7 @@ function SettingsPanel({configData, documentValue}) {
                         }}
                         width="size-1200">
                         <Item key="20">{t('low')}</Item>
-                        <Item key="50">{t('medium')}</Item>
+                        <Item key="70">{t('medium')}</Item>
                         <Item key="90">{t('high')}</Item>
                     </Picker>
                 </Flex>
