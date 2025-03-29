@@ -1,6 +1,6 @@
 # F_Record介绍
 
-[README_EN.md](./README.md)
+[README_EN.md](./README_EN.md)
 
 一款用来录制绘画过程的轻量级PS插件。
 
