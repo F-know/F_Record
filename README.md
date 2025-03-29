@@ -4,10 +4,7 @@
 
 一款用来录制绘画过程的轻量级PS插件。
 
-<video controls width="100%">
-    <source src="./demoVideo.mp4" type="video/mp4">
-    你的浏览器不支持HTML5视频标签。
-</video>
+https://github.com/user-attachments/assets/0221cee9-ac70-48d1-b85a-b85667813b90
 
 **插件原理**：调用PS生成器的接口，当画布发生变化时截取过程图片，最后将图片连起来生成录像。
 

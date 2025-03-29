@@ -2,10 +2,7 @@
 
 A lightweight Photoshop plugin used to record drawing processes.
 
-<video controls width="100%">
-    <source src="./demoVideo.mp4" type="video/mp4">
-    Your browser does not support the HTML5 video tag.
-</video>
+https://github.com/user-attachments/assets/0221cee9-ac70-48d1-b85a-b85667813b90
 
 **Plugin Principle**: It uses Photoshop's Generator interface. Whenever there is a change on the canvas, it captures a snapshot. In the end, these snapshots are combined into a single video.
 
