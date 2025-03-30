@@ -5,6 +5,7 @@
     const fs = require("fs");
     const writeFileAtomic = require('write-file-atomic');
     const Mutex = require('./mutex');
+    const savePixmap = require('./savePixmap');
 
     let _generator = null,
         _config = null;
@@ -289,8 +290,9 @@
         const imageName = `${pad(documentValue.count+1, 6)}.jpg`;
         const imageFilePath = path.join(imageFolderPath, imageName);
         try{
-            await _generator.savePixmap(pixmap, imageFilePath, saveSettings);
+            await savePixmap(pixmap, imageFilePath, saveSettings);
         } catch (error) {
+            console.log('savePixmap error: ', error);
             isGettingImage = false;
             return;
         }
