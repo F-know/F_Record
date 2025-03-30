@@ -42,6 +42,7 @@
         lastModifiedTime: null,
     }
 
+    const documentIdToCreateTime = {};
 
     const mutex = new Mutex();
 
@@ -126,9 +127,14 @@
             documentInfo = await _generator.getDocumentInfo();
             documentSettings = await _generator.getDocumentSettingsForPlugin(documentInfo.id, plugin_name);
             if (documentSettings.createTime === undefined) {
-                documentSettings.createTime = getNowTimeString();
+                if (documentIdToCreateTime[documentInfo.id] === undefined) {
+                    documentSettings.createTime = getNowTimeString();
+                } else {
+                    documentSettings.createTime = documentIdToCreateTime[documentInfo.id];
+                }
                 await _generator.setDocumentSettingsForPlugin(documentSettings, plugin_name);
             }
+            documentIdToCreateTime[documentInfo.id] = documentSettings.createTime;
         } catch (error) {
             _nowDocument = defaultNowDocument;
             writeFileAtomic.sync(nowDocumentFilePath, JSON.stringify(_nowDocument, null, 2));

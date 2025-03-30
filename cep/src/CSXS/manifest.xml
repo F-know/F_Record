@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ExtensionManifest Version="5.0" ExtensionBundleId="com.F_know.F_Record" ExtensionBundleVersion="3.0.0" ExtensionBundleName="F_Record" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <ExtensionList>
-        <Extension Id="com.F_know.F_Record.panel" Version="1.0"/>
+        <Extension Id="com.F_know.F_Record.panel" Version="3.0"/>
     </ExtensionList>
     <ExecutionEnvironment>
         <HostList>
