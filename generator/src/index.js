@@ -177,19 +177,19 @@
         const documentInfo = await _generator.getDocumentInfo(documentId);
         const documentBounds = documentInfo.bounds;
 
-        let pixmap = await _generator.getDocumentPixmap(documentId, {
+        const boundsPixmap = await _generator.getDocumentPixmap(documentId, {
             inputRect: documentBounds,
             outputRect: documentBounds,
             boundsOnly: true,
         });
-        const pixmapBounds = pixmap.bounds;
+        const pixmapBounds = boundsPixmap.bounds;
         
         const area = (documentBounds.bottom - documentBounds.top) * (documentBounds.right - documentBounds.left);
         const resolution = parseInt(configData.resolution);
         const k = Math.min(Math.sqrt(resolution * resolution * 16 / 9 / area), 1);
         const dimension = Math.round(Math.max(pixmapBounds.bottom - pixmapBounds.top, pixmapBounds.right - pixmapBounds.left) * k);
         
-        pixmap = await _generator.getDocumentPixmap(documentId, {
+        const pixmap = await _generator.getDocumentPixmap(documentId, {
             inputRect: documentBounds,
             outputRect: documentBounds,
             maxDimension: dimension,

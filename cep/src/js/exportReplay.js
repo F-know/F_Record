@@ -141,6 +141,7 @@ async function _exportReplay(exportParams) {
             .size(`${width}x${height}`)
             .autopad()
             .format('mpegts')
+            .videoBitrate('8000k')
             .outputOptions('-pix_fmt yuv420p')
             .output(output)
             .on('progress', (progress) => {
@@ -168,6 +169,7 @@ async function _exportReplay(exportParams) {
             .size(`${width}x${height}`)
             .autopad()
             .format('mpegts')
+            .videoBitrate('8000k')
             .outputOptions(['-shortest', '-pix_fmt yuv420p'])
             .output(output)
             .on('end', () => {
@@ -193,6 +195,7 @@ async function _exportReplay(exportParams) {
             .size(`${width}x${height}`)
             .autopad()
             .format('mpegts')
+            .videoBitrate('8000k')
             .outputOptions(['-shortest', '-pix_fmt yuv420p'])
             .output(output)
             .on('end', () => {
