@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "build:embed": "npm run build && node ./scripts/embedToBackend.mjs",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vue-tsc": "^3.0.7"
+  },
+  "dependencies": {
+    "element-plus": "^2.13.3",
+    "vue": "^3.5.13",
+    "vue-i18n": "^11.2.8"
+  }
+}
