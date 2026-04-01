@@ -22,7 +22,7 @@ const zh = {
     no: '否',
   },
   config: {
-    title: '1. 配置信息',
+    title: '基础配置',
     configPath: '配置路径',
     version: '版本',
     isEnabled: 'isEnabled',
@@ -42,7 +42,7 @@ const zh = {
     openUiHint: '重启后端后生效',
   },
   currentDoc: {
-    title: '2. 当前文档信息',
+    title: '当前文档',
     noDocumentOpen: '当前未打开任何文档',
     currentDocumentId: 'currentDocumentId',
     currentDocumentUid: 'currentDocumentUid',
@@ -55,7 +55,7 @@ const zh = {
     autoRefresh1s: '自动刷新（1s）',
   },
   list: {
-    title: '3. 文档列表',
+    title: '文档列表',
     total: '总数',
     uid: 'uid',
     filePath: 'filePath',
@@ -109,7 +109,7 @@ const zh = {
     phaseCancelled: '已取消',
   },
   logs: {
-    title: '4. 日志',
+    title: '日志',
     connectionConnected: '实时连接中',
     connectionDisconnected: '实时连接已断开',
     autoScroll: '自动滚动',

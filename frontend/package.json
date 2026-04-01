@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
+    "build:dist": "npm run build && node ./scripts/packageStandalone.mjs",
     "build:embed": "npm run build && node ./scripts/embedToBackend.mjs",
     "preview": "vite preview"
   },
